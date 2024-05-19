@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citations</title>
+    <style>
+        /* Define styles for the citation boxes */
+        .citation {
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+        }
+        /* Define styles for the citation ID */
+        .citation-id {
+            font-weight: bold;
+            color: #333;
+        }
+        /* Define styles for the citation link */
+        .citation-link {
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Citations</h1>
+    {% for citation in citations %}
+        <div class="citation">
+            <span class="citation-id">ID: {{ citation.id }}</span><br>
+            {% if citation.link %}
+                Link: <a href="{{ citation.link }}" class="citation-link" target="_blank">{{ citation.link }}</a>
+            {% else %}
+                No link available
+            {% endif %}
+        </div>
+    {% endfor %}
+</body>
+</html>
